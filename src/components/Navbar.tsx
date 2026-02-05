@@ -3,8 +3,20 @@
  import { Menu, X } from "lucide-react";
  import { useState } from "react";
  
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
  export function Navbar() {
    const [isOpen, setIsOpen] = useState(false);
+  
+  const handleNavClick = (id: string) => {
+    scrollToSection(id);
+    setIsOpen(false);
+  };
    
    return (
      <motion.nav
@@ -24,9 +36,9 @@
          
          {/* Desktop nav */}
          <div className="hidden md:flex items-center gap-8">
-           <a href="#pillars" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
-           <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-           <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Documentation</a>
+          <button onClick={() => handleNavClick("features")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</button>
+          <button onClick={() => handleNavClick("pricing")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</button>
+          <button onClick={() => handleNavClick("ai-features")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">AI Intelligence</button>
            <Button size="sm">Get Started</Button>
          </div>
          
@@ -48,9 +60,9 @@
            className="md:hidden border-t border-border bg-background"
          >
            <div className="container py-4 flex flex-col gap-4">
-             <a href="#pillars" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
-             <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
-             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Documentation</a>
+            <button onClick={() => handleNavClick("features")} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left">Features</button>
+            <button onClick={() => handleNavClick("pricing")} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left">Pricing</button>
+            <button onClick={() => handleNavClick("ai-features")} className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left">AI Intelligence</button>
              <Button size="sm" className="w-full">Get Started</Button>
            </div>
          </motion.div>
