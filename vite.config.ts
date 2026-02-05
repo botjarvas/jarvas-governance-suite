@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // ADICIONA ESTA LINHA ABAIXO (substitui 'jarvas-site' pelo nome real do teu repositório no GitHub)
+  base: "/jarvas-governance-suite/",
   server: {
     host: "::",
     port: 8080,
