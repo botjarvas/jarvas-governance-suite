@@ -12,8 +12,10 @@
        <Navbar />
        <main>
          <Hero />
-         <AIFeatures />
-         <section id="pillars">
+        <section id="ai-features">
+          <AIFeatures />
+        </section>
+        <section id="features">
            <Pillars />
          </section>
          <ValueProps />
