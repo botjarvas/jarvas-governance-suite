@@ -4,6 +4,7 @@
  import { ValueProps } from "@/components/ValueProps";
  import { Pricing } from "@/components/Pricing";
  import { Footer } from "@/components/Footer";
+ import { AIFeatures } from "@/components/AIFeatures";
  
  const Index = () => {
    return (
@@ -11,6 +12,7 @@
        <Navbar />
        <main>
          <Hero />
+         <AIFeatures />
          <section id="pillars">
            <Pillars />
          </section>

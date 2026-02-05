@@ -22,6 +22,19 @@
    { type: "save", content: "💾 Evidence saved to: runs/run-20260205T033427Z/artifacts/summary.json" },
    { type: "empty", content: "" },
    { type: "status-fail", content: "[STATUS] FAILED (Exit Code: 1)" },
+   { type: "empty", content: "" },
+   { type: "ai-header", content: "🤖 [AI ADVISOR] Analyzing findings with LLM..." },
+   { type: "ai-insight", content: "┌─────────────────────────────────────────────────────────────────────────┐" },
+   { type: "ai-insight", content: "│ 💡 ANALYSIS: The exposed AWS Key in production.env creates an          │" },
+   { type: "ai-insight", content: "│    immediate risk of unauthorized infrastructure access. Attackers      │" },
+   { type: "ai-insight", content: "│    can provision resources, exfiltrate data, or pivot laterally.       │" },
+   { type: "ai-insight", content: "│                                                                         │" },
+   { type: "ai-command", content: "│ 🔧 REMEDIATION: Rotate the key immediately:                             │" },
+   { type: "ai-command", content: "│    $ aws iam create-access-key --user-name <SERVICE_ACCOUNT>            │" },
+   { type: "ai-command", content: "│    $ aws iam delete-access-key --access-key-id AKIA***XXXX              │" },
+   { type: "ai-insight", content: "│                                                                         │" },
+   { type: "ai-priority", content: "│ ⚠️  PRIORITY: CRITICAL | TIME TO REMEDIATE: < 15 minutes               │" },
+   { type: "ai-insight", content: "└─────────────────────────────────────────────────────────────────────────┘" },
  ];
  
  const getLineColor = (type: string) => {
@@ -46,6 +59,14 @@
        return "terminal-purple";
      case "status-fail":
        return "terminal-red bg-terminal-red/10 inline-block px-2 rounded";
+     case "ai-header":
+       return "terminal-cyan font-semibold";
+     case "ai-insight":
+       return "terminal-cyan opacity-90";
+     case "ai-command":
+       return "terminal-green";
+     case "ai-priority":
+       return "terminal-amber font-semibold";
      default:
        return "terminal-muted";
    }
