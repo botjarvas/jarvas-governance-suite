@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Define a base como o nome do teu repositório para o GitHub Pages funcionar
+  // Define a base como o nome do teu repositório para que os ficheiros sejam encontrados
   base: "/jarvas-governance-suite/",
   server: {
     host: "::",
